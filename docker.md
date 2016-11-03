@@ -180,13 +180,13 @@ docker是一个开源的应用容器引擎，docker-compose是一个部署多个
 配置环境变量
 > vi /etc/bashrc
 
-在最后一行加上 
+在环境变量的最后一行加上 
 >alias dphp='/opt/dphp.sh'
 
 重新登录终端，dphp即生效
 
 ###使用要点
 
-- 在项目目录下比如/www/project_folder执行dphp yii，即相当于docker exec -ti php /data/www/project_folder/yii
+- 在项目目录下比如/www/project1执行dphp yii，即相当于docker exec -ti php /data/www/project1/yii
 - 可以在后面加参数 比如 dphp yii migrate/create customer_status
 - 在项目目录下使用才有效，此处限制了项目目录的上一层文件夹名为www，可自行修改shell脚本定制
