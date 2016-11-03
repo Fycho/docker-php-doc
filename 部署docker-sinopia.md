@@ -9,7 +9,8 @@
  
 #config.yml字段说明
 - 将max_users设置为-1以避免登录的终端自行add npm user
-- 禁用add user后通过修改htpasswd来增加用户，加密方式为Node.js的crypto模块的sha1方式+digest('hex')
+- 创建用户的时候将max_users设置为正常值，创建完后再设置为-1
+- 禁用add user后通过修改htpasswd来初始化用户，加密方式为Node.js的crypto模块的createHash('sha1')加密，转化为digest('hex')输出
 - 修改files来指定密码验证文件
 - packages里来修改包的获得与发布的权限
 - uplinks配置上游npm源，当私有npm里不存在相应包时，npm install的时候会去上游源搜索，国内一般用淘宝的源
