@@ -5,26 +5,19 @@ docker是一个开源的应用容器引擎，docker-compose是一个部署多个
 ## 基本使用方式
 
 ### CentOS安装docker
-升级yum
+首先升级yum
 >$ sudo yum update
 
-配置源
+配置yum源
 
->$ sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
-
->[dockerrepo]
-
->name=Docker Repository
-
->baseurl=https://yum.dockerproject.org/repo/main/centos/7/
-
->enabled=1
-
->gpgcheck=1
-
->gpgkey=https://yum.dockerproject.org/gpg
-
->EOF
+	$ sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
+	[dockerrepo]
+	name=Docker Repository
+	baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+	enabled=1
+	gpgcheck=1
+	gpgkey=https://yum.dockerproject.org/gpg
+	EOF
 
 安装docker
 >$ sudo yum install docker-engine
@@ -109,11 +102,10 @@ docker是一个开源的应用容器引擎，docker-compose是一个部署多个
 
 我们在宿主机创建一个workspace的目录
 
-在workspace目录里创建一个docker目录，并依此还有docker-compose.yml里面配置到的需要挂到宿主机的目录、文件
+在workspace目录里创建一个docker目录，并依次创建docker-compose.yml里面配置到的需要挂载到宿主机的目录、文件
 
-目录参考
-
-
+###目录参考
+见附件提供的目录模板
 
 
 配置好文件和项目目录后，在docker-compspe.yml的目录下进行初始化
@@ -123,7 +115,7 @@ docker是一个开源的应用容器引擎，docker-compose是一个部署多个
 
 ##常用命令
 
-为了我们更好的使用各个容器，先罗列一些常用命令如下：
+为了我们更好的使用各个容器，现罗列一些常用命令如下：
 
 启动/重启容器
 >$ docker start/restart [container_name]
@@ -141,25 +133,25 @@ docker是一个开源的应用容器引擎，docker-compose是一个部署多个
 >$ docker logs -ft [container_name]
 
 查看容器详细信息
->$docker inspect [container_name]
+>$ docker inspect [container_name]
 
 列出正在运行的容器
->$docker ps
+>$ docker ps
 
 列出所有容器
->docker ps -a
+>$ docker ps -a
 
 删除容器
->$docker rm [container_name]
+>$ docker rm [container_name]
 
 删除镜像
->$docker rmi [image_name]
+>$ docker rmi [image_name]
 
 查看更多命令请执行
->$docker --help
+>$ docker --help
 
 ##dphp命令
-为了让大家更方便的使用php容器的命令来开发，故提供一种可以更便捷的使用docker exec -ti php的命令———— dphp
+为了让大家更方便的使用php容器的命令来开发，故提供一种可以更便捷的使用docker exec -ti php的命令——dphp
 
 ###配置方法
 
@@ -178,9 +170,9 @@ docker是一个开源的应用容器引擎，docker-compose是一个部署多个
 	fi
 
 配置环境变量
-> vi /etc/bashrc
+>vi /etc/bashrc
 
-在环境变量的最后一行加上 
+在最后一行加上 
 >alias dphp='/opt/dphp.sh'
 
 重新登录终端，dphp即生效
