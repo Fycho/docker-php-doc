@@ -51,5 +51,6 @@
 3. 配置模块化加载工具如webpack
 4. 相应文件里使用var test = require('testname'); 获得相应模块的导出。testname替换为对应的npm包名
 5. 使用webpack打包、编译相应文件，使得浏览器能最终识别requrie函数
+
 ****
 扩展阅读：[前端模块化实践----使用webpack打包js代码](http://www.cnblogs.com/ibufu/p/5078684.html)
